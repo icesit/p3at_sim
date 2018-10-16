@@ -784,5 +784,34 @@
       <odometryFrame>sim_p3at/odom</odometryFrame>
       <broadcastTF>1</broadcastTF>
     </plugin>
+    <sensor name='sensor_laser' type='ray'>
+	<visualize>0</visualize>
+	<update_rate>10</update_rate>
+	<pose> 0 0 0 0 0 0 </pose>
+	<plugin name='ros_laser' filename='libgazebo_ros_laser.so'>
+          <topicName>/base_scan</topicName>
+          <frameName>base_scan</frameName>
+	</plugin>
+	<ray>
+	  <scan>
+            <horizontal>
+            	<samples>200</samples>
+            	<resolution>1</resolution>
+            	<min_angle>-2.356194</min_angle>
+            	<max_angle>2.356194</max_angle>
+            </horizontal>
+          </scan>	  
+	  <range>
+          	<min>0.10</min>
+          	<max>50.0</max>
+          	<resolution>0.01</resolution>
+          </range>
+	  <noise>
+          	<type>gaussian</type>
+          	<mean>0.0</mean>
+          	<stddev>0.01</stddev>
+          </noise>
+	</ray>
+	</sensor>
   </model>
 </sdf>
