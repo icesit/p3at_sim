@@ -78,7 +78,7 @@
     </model>
     <model name="my_world">
       <link name="my_world_link">
-        <pose>0 0 0 0 0 0</pose>
+        <pose>10 -38 0 0 0 0</pose>
         <!--collision name="fly_indoor_collision">
           <geometry>
             <mesh>
