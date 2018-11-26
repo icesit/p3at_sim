@@ -209,7 +209,7 @@
     <child link="base_scan"/>
   </joint-->
 
-  <!--joint name="hokuyo_joint" type="fixed">
+  <joint name="hokuyo_joint" type="fixed">
     <axis xyz="0 1 0" />
     <origin xyz="0 0 0.33" rpy="0 0 0"/>
     <parent link="base_link"/>
@@ -223,14 +223,12 @@
         <box size="0.1 0.1 0.1"/>
       </geometry>
     </collision>
-
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
         <mesh filename="package://amr_robots_description/meshes/hokuyo/hokuyo.dae"/>
       </geometry>
     </visual>
-
     <inertial>
       <mass value="1e-5" />
       <origin xyz="0 0 0" rpy="0 0 0"/>
@@ -267,7 +265,7 @@
         <frameName>base_scan</frameName>
       </plugin>
     </sensor>
-  </gazebo-->
+  </gazebo>
 
   <link name="cam_link">
     <inertial>

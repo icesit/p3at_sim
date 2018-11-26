@@ -1,0 +1,10 @@
+<launch>
+
+  <!-- Move base -->
+  <include file="$(find amr_robots_navigation)/launch/includes/move_base.launch.xml">
+    
+  </include>
+
+  
+</launch>
+
