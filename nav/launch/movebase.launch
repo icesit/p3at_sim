@@ -5,6 +5,6 @@
     
   </include>
 
-  
+  <node pkg="tf2_ros" type="static_transform_publisher" name="base_to_footprint" args="0 0 0 0 0 0 1 base_link base_footprint" />
 </launch>
 
