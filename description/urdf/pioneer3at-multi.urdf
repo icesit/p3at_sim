@@ -16,7 +16,7 @@
     <inertial>
       <mass value="21.5"/>
       <!-- P3AT 18.6kg plus three batteries @ 2.4kg each  minus four wheels @ 1.4 kg ea and top plate @ 0.1 kg-->
-      <origin xyz=" -0.1 0 0.177"/>
+      <origin xyz=" -0.0 0 0.0"/>
       <inertia ixx="0.3338" ixy="0.0" ixz="0.0" iyy="0.4783" iyz="0.0" izz="0.3338"/>
     </inertial>
     <visual>
@@ -114,8 +114,8 @@
   </joint>
 
   <joint name="$(arg ns)/hokuyo_joint" type="fixed">
-    <axis xyz="0 1 0" />
-    <origin xyz="0 0 0.33" rpy="0 0 0"/>
+    <!--axis xyz="0 1 0" /-->
+    <origin xyz="0 0 0.5" rpy="0 0 0"/>
     <parent link="$(arg ns)/base_link"/>
     <child link="$(arg ns)/base_scan"/>
   </joint>
@@ -180,6 +180,57 @@
     </plugin>
   </gazebo>
   
+  <!--link name="$(arg ns)/velodyne">
+    <inertial>
+      <mass value="0.1"/>
+      <origin xyz="0 0 0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://amr_robots_description/meshes/velodyne_hdl32/velodyne_top.dae"/>
+      </geometry>
+    </visual>
+  </link>
+  <gazebo reference="$(arg ns)/velodyne">
+    <sensor name="sensor_velodyne" type="ray">
+	<visualize>0</visualize>
+	<update_rate>10</update_rate>
+	<pose> 0 0 0 0 0 0 </pose>
+	<plugin name="ros_velodyne" filename="libgazebo_ros_block_laser.so">
+          <topicName>points</topicName>
+          <frameName>$(arg ns)/velodyne</frameName>
+	</plugin>
+	<ray>
+	  <scan>
+            <horizontal>
+            	<samples>100</samples>
+            	<resolution>1</resolution>
+            	<min_angle>-2.356194</min_angle>
+            	<max_angle>2.356194</max_angle>
+            </horizontal>
+            <vertical>
+            	<samples>16</samples>
+            	<resolution>1</resolution>
+            	<min_angle>-0.261799</min_angle>
+            	<max_angle>0.261799</max_angle>
+            </vertical>
+          </scan>	  
+	  <range>
+          	<min>0.50</min>
+          	<max>15.0</max>
+          	<resolution>0.01</resolution>
+          </range>
+	</ray>
+    </sensor>
+  </gazebo>
+  <joint name="$(arg ns)/base_velodyne_joint" type="fixed">
+    <origin rpy="0 0 0" xyz="0 0 0.5"/>
+    <parent link="$(arg ns)/base_link"/>
+    <child link="$(arg ns)/velodyne"/>
+  </joint-->
+
   <!-- Front Axles + Wheels + Hubcaps -->
   <link name="$(arg ns)/p3at_front_left_axle">
     <inertial>
