@@ -6,26 +6,26 @@
 
   <arg name="paused" default="false"/>
   <arg name="use_sim_time" default="true"/>
-  <arg name="gui" default="false"/>
+  <arg name="gui" default="true"/>
   <arg name="headless" default="false"/>
   <arg name="debug" default="false"/>
   <arg name="verbose" default="true"/>
-  <arg name="world" default="$(find amr_robots_gazebo)/train.world" /> 
+  <arg name="world" default="$(find amr_robots_gazebo)/test_complex.world" /> 
   <arg name="urdf" default="$(find amr_robots_description)/urdf/pioneer3at-multi.urdf" />
 
-<!--group ns="robot0">
+<group ns="robot0">
   <param name="robot_description" command="$(find xacro)/xacro.py  $(arg urdf) ns:=robot0"/>
   <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher"/>
   <node name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher" />
-  <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen" args="-urdf -model robot0 -param robot_description -x 0 -y 0 -z 0.5"/> 
-</group--> 
+  <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen" args="-urdf -model robot0 -param robot_description -x -2.5 -y -4.7 -z 0.5"/> 
+</group> 
 
-<group ns="robot1">
+<!--group ns="robot1">
   <param name="robot_description" command="$(find xacro)/xacro.py  $(arg urdf) ns:=robot1"/>
   <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher"/>
   <node name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher" />
   <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen" args="-urdf -model robot1 -param robot_description -x 7 -y 0 -z 0.5"/> 
-</group> 
+</group--> 
 
 <!--group ns="robot2">
   <param name="robot_description" command="$(find xacro)/xacro.py  $(arg urdf) ns:=robot2"/>
@@ -41,14 +41,14 @@
   <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen" args="-urdf -model robot3 -param robot_description -x 22 -y 0 -z 0.5"/> 
 </group--> 
 
-<group ns="robot4">
+<!--group ns="robot4">
   <param name="robot_description" command="$(find xacro)/xacro.py  $(arg urdf) ns:=robot4"/>
   <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher"/>
   <node name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher" />
   <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen" args="-urdf -model robot4 -param robot_description -x 0 -y 7 -z 0.5"/> 
 </group> 
 
-<!--group ns="robot5">
+<group ns="robot5">
   <param name="robot_description" command="$(find xacro)/xacro.py  $(arg urdf) ns:=robot5"/>
   <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher"/>
   <node name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher" />
@@ -60,14 +60,14 @@
   <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher"/>
   <node name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher" />
   <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen" args="-urdf -model robot6 -param robot_description -x 15 -y 7 -z 0.5"/> 
-</group--> 
+</group> 
 
 <group ns="robot7">
   <param name="robot_description" command="$(find xacro)/xacro.py  $(arg urdf) ns:=robot7"/>
   <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher"/>
   <node name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher" />
   <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen" args="-urdf -model robot7 -param robot_description -x 22 -y 7 -z 0.5"/> 
-</group> 
+</group--> 
 
 
   <!-- set use_sim_time flag -->
