@@ -410,7 +410,7 @@
   </gazebo>
 
   <!--kinect camera-->
-  <!--link name="kinect_link">
+  <link name="kinect_link">
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
@@ -468,7 +468,7 @@
       <hackBaseline>0</hackBaseline>
     </plugin>
    </sensor>
-  </gazebo-->
+  </gazebo>
   
   <!-- Front Axles + Wheels + Hubcaps -->
   <link name="p3at_front_left_axle">
