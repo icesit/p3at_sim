@@ -1,4 +1,4 @@
-material vrc/mywall1
+material vrc/mypillar
 {
 	receive_shadows off
 	technique
@@ -7,7 +7,7 @@ material vrc/mywall1
 		{
 			texture_unit
 			{
-				texture mywall1.jpg
+				texture mypillar.jpg
 				filtering anistropic
 				max_anisotropy 16
 				scale 1 1

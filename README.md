@@ -107,6 +107,11 @@ about the differences between using Gazebo and other ROS simulators , or
 rosaria with MobileSim or a real robot.
 
 
+Notification
+------------
+
+The first time you run some world will need some time to download models, but the download website is not correct. You can download models from <http://models.gazebosim.org/>, and then put them in "~/.gazebo/models/".
+
 
 [1]: http://wiki.ros.org/ROS/EnvironmentVariables#ROS_PACKAGE_PATH
 [2]: http://wiki.ros.org/catkin/Tutorials/create_a_workspace
