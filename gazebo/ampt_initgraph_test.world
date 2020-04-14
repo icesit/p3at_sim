@@ -126,10 +126,10 @@
       <pose frame=''>3.74966 -1.83578 0 0 -0 0</pose>
     </model>
     <state world_name='default'>
-      <sim_time>8854 234000000</sim_time>
-      <real_time>328 51650299</real_time>
-      <wall_time>1586417199 53102419</wall_time>
-      <iterations>327151</iterations>
+      <sim_time>8962 59000000</sim_time>
+      <real_time>108 125370507</real_time>
+      <wall_time>1586828517 840194520</wall_time>
+      <iterations>107825</iterations>
       <model name='grey_wall_0'>
         <pose frame=''>3.74966 -1.83578 0 0 -0 0</pose>
         <scale>1 1 1</scale>
@@ -220,16 +220,6 @@
           <wrench>0 0 0 0 -0 0</wrench>
         </link>
       </model>
-      <model name='mywall0_0_clone_1'>
-        <pose frame=''>3.02284 2.94095 0 0 0 -0.78</pose>
-        <scale>1 1 1</scale>
-        <link name='link'>
-          <pose frame=''>3.02284 2.94095 1.4 0 0 -0.78</pose>
-          <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>0 0 0 0 -0 0</acceleration>
-          <wrench>0 0 0 0 -0 0</wrench>
-        </link>
-      </model>
       <model name='mywall0_0_clone_1_clone'>
         <pose frame=''>4.62404 4.35704 0 0 0 -0.78</pose>
         <scale>1 1 1</scale>
@@ -290,11 +280,21 @@
           <wrench>0 0 0 0 -0 0</wrench>
         </link>
       </model>
-      <model name='unit_cylinder_0'>
-        <pose frame=''>-2.2289 7.32927 0.499992 -3e-06 3e-06 -0.164296</pose>
+      <model name='mywall1_clone'>
+        <pose frame=''>3.04998 3.00967 0 0 0 -0.78</pose>
         <scale>1 1 1</scale>
         <link name='link'>
-          <pose frame=''>-2.2289 7.32927 0.499992 -3e-06 3e-06 -0.164296</pose>
+          <pose frame=''>3.04998 3.00967 1.4 0 0 -0.78</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='unit_cylinder_0'>
+        <pose frame=''>-2.2289 7.32927 0.499992 -3e-06 2e-06 -0.164296</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose frame=''>-2.2289 7.32927 0.499992 -3e-06 2e-06 -0.164296</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 -9.8 0 -0 0</acceleration>
           <wrench>0 0 -9.8 0 -0 0</wrench>
@@ -306,7 +306,7 @@
     </state>
     <gui fullscreen='0'>
       <camera name='user_camera'>
-        <pose frame=''>-2.02325 0.697387 31.6671 0 1.5298 1.56819</pose>
+        <pose frame=''>0.813136 1.44333 31.698 0 1.5298 1.56819</pose>
         <view_controller>orbit</view_controller>
         <projection_type>perspective</projection_type>
       </camera>
@@ -400,51 +400,6 @@
         <gravity>1</gravity>
       </link>
       <pose frame=''>1.2311 2.67698 0 0 -0 1.57</pose>
-    </model>
-    <model name='mywall0_0_clone_1'>
-      <static>1</static>
-      <link name='link'>
-        <pose frame=''>0 0 1.4 0 -0 0</pose>
-        <collision name='collision'>
-          <geometry>
-            <box>
-              <size>3.5 0.5 2.4</size>
-            </box>
-          </geometry>
-          <max_contacts>10</max_contacts>
-          <surface>
-            <contact>
-              <ode/>
-            </contact>
-            <bounce/>
-            <friction>
-              <torsional>
-                <ode/>
-              </torsional>
-              <ode/>
-            </friction>
-          </surface>
-        </collision>
-        <visual name='visual'>
-          <cast_shadows>0</cast_shadows>
-          <geometry>
-            <box>
-              <size>3.5 0.5 2.4</size>
-            </box>
-          </geometry>
-          <material>
-            <script>
-              <uri>model://mywall0/materials/scripts</uri>
-              <uri>model://mywall0/materials/textures</uri>
-              <name>vrc/mywall0</name>
-            </script>
-          </material>
-        </visual>
-        <self_collide>0</self_collide>
-        <kinematic>0</kinematic>
-        <gravity>1</gravity>
-      </link>
-      <pose frame=''>3.02284 2.94095 0 0 0 -0.78</pose>
     </model>
     <model name='grey_wall_1_clone'>
       <static>1</static>
@@ -994,6 +949,51 @@
         <gravity>1</gravity>
       </link>
       <pose frame=''>-2.50698 -0.379397 0 0 -0 0.78</pose>
+    </model>
+    <model name='mywall1_clone'>
+      <static>1</static>
+      <link name='link'>
+        <pose frame=''>0 0 1.4 0 -0 0</pose>
+        <collision name='collision'>
+          <geometry>
+            <box>
+              <size>3.5 0.5 2.4</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <cast_shadows>0</cast_shadows>
+          <geometry>
+            <box>
+              <size>3.5 0.5 2.4</size>
+            </box>
+          </geometry>
+          <material>
+            <script>
+              <uri>model://mywall1/materials/scripts</uri>
+              <uri>model://mywall1/materials/textures</uri>
+              <name>vrc/mywall1</name>
+            </script>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <kinematic>0</kinematic>
+        <gravity>1</gravity>
+      </link>
+      <pose frame=''>3.04998 3.00967 0 0 0 -0.78</pose>
     </model>
   </world>
 </sdf>
