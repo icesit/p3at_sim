@@ -10,7 +10,7 @@
   <arg name="headless" default="false"/>
   <arg name="debug" default="false"/>
   <arg name="verbose" default="true"/>
-  <arg name="world" default="$(find amr_robots_gazebo)/ampt_initgraph_test.world" />  <!--$(find amr_robots_description)/worlds/worlds/heightmap.world-->
+  <arg name="world" default="$(find amr_robots_gazebo)/ampt_actloc.world" />  <!--ampt_initgraph_test-->
   <arg name="urdf" default="$(find amr_robots_description)/urdf/pioneer3at.urdf" />
 
   <param name="robot_description" command="$(find xacro)/xacro.py $(arg urdf)" />
