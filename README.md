@@ -117,3 +117,13 @@ The first time you run some world will need some time to download models, but th
 [2]: http://wiki.ros.org/catkin/Tutorials/create_a_workspace
 
 
+Run the environments
+--------------------
+
+active SLAM with prior graph:
+
+    roslaunch amr_robots_gazebo example-pioneer3at-ampt.launch
+
+train an deep reinforcement learning based local planner: 
+    
+    roslaunch amr_robots_gazebo train-p3at-world.launch
