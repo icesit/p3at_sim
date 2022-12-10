@@ -450,7 +450,7 @@
       <baseline>0.2</baseline>
       <cameraName>kinect_ir</cameraName>
       <imageTopicName>/kinect/rgb/image_raw</imageTopicName>
-      <cameraInfoTopicName>/kinect/depth/camera_info</cameraInfoTopicName>
+      <cameraInfoTopicName>/kinect/rgb/camera_info</cameraInfoTopicName>
       <depthImageTopicName>/kinect/depth/image_raw</depthImageTopicName>
       <depthImageInfoTopicName>/kinect/depth/camera_info</depthImageInfoTopicName>
       <pointCloudTopicName>/kinect/depth/points</pointCloudTopicName>
@@ -469,6 +469,9 @@
     </plugin>
    </sensor>
   </gazebo>
+
+  <!--realsense-->
+  
   
   <!-- Front Axles + Wheels + Hubcaps -->
   <link name="p3at_front_left_axle">

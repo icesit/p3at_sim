@@ -391,5 +391,17 @@ name="pioneer3at">
 <xacro:p3at_drive_side side="right" reflect="-1"/>
 <xacro:p3at_gazebo_ext/>
 
+    <!--xacro:arg name="use_nominal_extrinsics" default="false"/>
+    <xacro:arg name="add_plug" default="true" />
+    <xacro:arg name="use_mesh" default="false" />
+    <xacro:include filename="$(find realsense2_description)/urdf/_d435.urdf.xacro" />
+    <xacro:sensor_d435 parent="base_link" use_nominal_extrinsics="$(arg use_nominal_extrinsics)" add_plug="$(arg add_plug)" use_mesh="$(arg use_mesh)">
+        <origin xyz="0.2 0 1" rpy="0 1.57 0"/>
+    </xacro:sensor_d435-->
+
+    <xacro:include filename="$(find realsense_gazebo_plugin)/urdf/realsense-RS200.macro.xacro"/>
+    <xacro:realsense-rs200 prefix="" parent="base_link">
+        <origin xyz="0 0 1.0" rpy="0 0 0" />   
+    </xacro:realsense-rs200>
 
 </robot>
