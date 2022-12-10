@@ -45,6 +45,6 @@
     <node name="gazebo_gui" pkg="gazebo_ros" type="gzclient" respawn="false" output="screen"/>
   </group>
 
-  <node name="realposepub" pkg="amr_robots_gazebo" type="realpose.py" />
+  <!--node name="realposepub" pkg="amr_robots_gazebo" type="realpose.py" /-->
 </launch>
 

@@ -15,6 +15,8 @@ from geometry_msgs.msg import PoseWithCovarianceStamped
 #from geometry_msgs.msg import Twist
 from nav_msgs.msg import Odometry
 
+odomt_error_factor = 1.0 - 0.1
+
 robotname = 'pioneer3at_robot'
 
 def realposecb(data):
@@ -37,13 +39,26 @@ def realposecb(data):
         i -= 1
     time.sleep(0.019)
 
+def realodomcb(data):
+    global odomwitherrpub
+    odom_msg = data
+    odom_msg.pose.pose.position.x *= odomt_error_factor
+    odom_msg.pose.pose.position.y *= odomt_error_factor
+    odom_msg.pose.pose.position.z *= odomt_error_factor
+    odom_msg.twist.twist.linear.x *= odomt_error_factor
+    odom_msg.twist.twist.linear.y *= odomt_error_factor
+    odom_msg.twist.twist.linear.z *= odomt_error_factor
+    odomwitherrpub.publish(odom_msg) 
+
 if __name__ == '__main__':
     rospy.init_node('realposepub', anonymous=True)
     rospy.Subscriber("/gazebo/model_states", ModelStates, realposecb, queue_size=1)
+    rospy.Subscriber('/sim_p3at/odom', Odometry, realodomcb, queue_size=1)
     global realposepub, realtwistpub
     realposepub = rospy.Publisher('/gt_posetwist', Odometry, queue_size=1)
     posecovarpub = rospy.Publisher('/odom/pose', PoseWithCovarianceStamped, queue_size=1)
     #realtwistpub = rospy.Publisher('/gt_twist', Twist, queue_size=1)
+    odomwitherrpub = rospy.Publisher('/sim_p3at/odom_with_err', Odometry, queue_size=1)
     rate = rospy.Rate(10)
     pose_msg = PoseWithCovarianceStamped()
     pose_msg.header.frame_id = 'odom'
@@ -55,15 +70,15 @@ if __name__ == '__main__':
             try:
                 t = tfl.getLatestCommonTime("base_link", "odom")
                 pos, quat = tfl.lookupTransform("odom", "base_link", t)
-                pose_msg.header.stamp = t;
-                pose_msg.pose.pose.position.x = pos[0];
-                pose_msg.pose.pose.position.y = pos[1];
-                pose_msg.pose.pose.position.z = pos[2];
-                pose_msg.pose.pose.orientation.x = quat[0];
-                pose_msg.pose.pose.orientation.y = quat[1];
-                pose_msg.pose.pose.orientation.z = quat[2];
-                pose_msg.pose.pose.orientation.w = quat[3];
-                posecovarpub.publish(pose_msg)
+                pose_msg.header.stamp = t
+                pose_msg.pose.pose.position.x = pos[0] * odomt_error_factor
+                pose_msg.pose.pose.position.y = pos[1] * odomt_error_factor
+                pose_msg.pose.pose.position.z = pos[2] * odomt_error_factor
+                pose_msg.pose.pose.orientation.x = quat[0]
+                pose_msg.pose.pose.orientation.y = quat[1]
+                pose_msg.pose.pose.orientation.z = quat[2]
+                pose_msg.pose.pose.orientation.w = quat[3]
+                posecovarpub.publish(pose_msg)       
             except:
                 pass
         rate.sleep()
